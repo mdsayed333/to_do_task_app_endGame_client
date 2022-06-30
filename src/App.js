@@ -4,6 +4,8 @@ import './App.css';
 import Home from './Pages/Home/Home';
 import ToDo from './Pages/ToDo/ToDo';
 import Navbar from './Pages/Home/Navbar';
+import { ToastContainer,  } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
@@ -13,6 +15,7 @@ function App() {
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/todo' element={<ToDo></ToDo>}></Route>
        </Routes>
+       <ToastContainer/>
     </div>
   );
 }

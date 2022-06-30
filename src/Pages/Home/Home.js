@@ -1,13 +1,46 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaPlusCircle } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { toast,  } from 'react-toastify';
+import { useQuery } from "react-query";
+
 
 const Home = () => {
+   // const [tasks, setTasks] = useState([]);
+
+   // useEffect( () => {
+   //    fetch()
+   // },[])
+
+   const {
+      isLoading,
+      data: tasks,
+      refetch,
+    } = useQuery("task", () =>
+      fetch("http://localhost:5000/task").then((res) =>
+        res.json()
+      )
+    );
 
    const addTask = (event) => {
       event.preventDefault();
-      let task = event.target.task.value;
-      console.log(task);
+      let tasktitle = event.target.task.value;
+      const task = {
+         task: tasktitle
+       };
+               // Post a new task
+      fetch('http://localhost:5000/task', {
+         method: "POST",
+         headers: {
+           "content-type": "application/json",
+         },
+         body: JSON.stringify(task),
+       })
+         .then((res) => res.json())
+         .then((data) => {
+           console.log(data);
+           toast.success("Successfully Added");
+         });
    }
   return (
     <div>
@@ -28,6 +61,10 @@ const Home = () => {
         </div>
       </div>
         </form>
+
+        <div>
+         
+        </div>
     </div>
   );
 };

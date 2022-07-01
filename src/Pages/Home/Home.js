@@ -13,7 +13,7 @@ const Home = () => {
       data: tasks,
       refetch,
     } = useQuery("task", () =>
-      fetch("http://localhost:5000/task").then((res) =>
+      fetch("https://todo-task-app-endgame-server.herokuapp.com/task").then((res) =>
         res.json()
       )
     );
@@ -28,7 +28,7 @@ const Home = () => {
          task: tasktitle
        };
                // Post a new task
-      fetch('http://localhost:5000/task', {
+      fetch('https://todo-task-app-endgame-server.herokuapp.com/task', {
          method: "POST",
          headers: {
            "content-type": "application/json",

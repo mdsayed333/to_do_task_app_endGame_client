@@ -8,7 +8,7 @@ const CompleteTask = () => {
     data: tasks,
     refetch,
   } = useQuery("task", () =>
-    fetch("http://localhost:5000/complete").then((res) => res.json())
+    fetch("https://todo-task-app-endgame-server.herokuapp.com/complete").then((res) => res.json())
   );
   if (isLoading) {
     return <Loading></Loading>;

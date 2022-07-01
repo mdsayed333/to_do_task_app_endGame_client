@@ -4,26 +4,26 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   const menuItems = (
     <>
-      <li>
-        <Link to="/">Home</Link>
+      <li >
+        <Link to="/" className="btn btn-accent mb-2 mr-2">Home</Link>
       </li>
       <li>
-        <Link to="/todo">To Do</Link>
+        <Link to="/todo" className="btn btn-accent mb-2 mr-2">To Do</Link>
       </li>
       <li>
-        <Link to="/complete">Completed Tasks</Link>
+        <Link to="/complete" className="btn btn-accent mb-2 mr-2">Completed Tasks</Link>
       </li>
       <li>
-        <Link to="/calendar">Calendar</Link>
+        <Link to="/calendar" className="btn btn-accent mb-2 mr-2">Calendar</Link>
       </li>
     </>
   );
   return (
-    <div>
+    <div className="py-3">
       <div class="navbar bg-">
         <div class="navbar-start">
           <div class="dropdown">
-            <label tabindex="0" class="btn btn-ghost lg:hidden">
+            <label tabindex="0" class="btn btn-accent lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="h-5 w-5"
@@ -46,7 +46,7 @@ const Navbar = () => {
               {menuItems}
             </ul>
           </div>
-          <a class="btn btn-ghost normal-case text-xl">To Do Tasks</a>
+          <a class=" normal-case text-xl"><span className="text-4xl font-bold pl-5">To Do Tasks</span></a>
         </div>
         <div class="navbar-center hidden lg:flex">
           <ul class="menu menu-horizontal p-0">{menuItems}</ul>

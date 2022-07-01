@@ -10,7 +10,7 @@ const ToDo = () => {
       data: tasks,
       refetch,
     } = useQuery("task", () =>
-      fetch("http://localhost:5000/task").then((res) =>
+      fetch("https://todo-task-app-endgame-server.herokuapp.com/task").then((res) =>
         res.json()
       )
     );

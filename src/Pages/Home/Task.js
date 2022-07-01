@@ -6,13 +6,13 @@ const Task = ({task, refetch}) => {
    // console.log(task);
    const completeTask = task.task;
    const id = task._id;
-   const url = `http://localhost:5000/task/${id}`
+   const url = `https://todo-task-app-endgame-server.herokuapp.com/task/${id}`
    const complete = (event) => {
       event.preventDefault();
       const task = {
          task: completeTask
        };
-      fetch('http://localhost:5000/complete', {
+      fetch('https://todo-task-app-endgame-server.herokuapp.com/complete', {
          method: "POST",
          headers: {
            "content-type": "application/json",

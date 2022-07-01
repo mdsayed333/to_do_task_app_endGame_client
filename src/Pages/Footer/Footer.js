@@ -19,7 +19,7 @@ const Footer = () => {
           <p>
             MOHAMMED SAYED
             <br />
-            Copyright © 2022 - All right reserved
+            Copyright &copy; 2022 - All right reserved
           </p>
         </div>
         <div>

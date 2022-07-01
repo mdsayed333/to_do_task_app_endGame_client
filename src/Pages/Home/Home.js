@@ -1,16 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { FaPlusCircle } from "react-icons/fa";
-import { Link } from "react-router-dom";
 import { toast,  } from 'react-toastify';
 import { useQuery } from "react-query";
+import Task from "./Task";
+import Loading from "../Loading/Loading";
 
 
 const Home = () => {
-   // const [tasks, setTasks] = useState([]);
-
-   // useEffect( () => {
-   //    fetch()
-   // },[])
 
    const {
       isLoading,
@@ -21,7 +17,10 @@ const Home = () => {
         res.json()
       )
     );
-
+    if(isLoading){
+      return <Loading></Loading>
+    }
+// console.log(tasks);
    const addTask = (event) => {
       event.preventDefault();
       let tasktitle = event.target.task.value;
@@ -40,6 +39,7 @@ const Home = () => {
          .then((data) => {
            console.log(data);
            toast.success("Successfully Added");
+           refetch()
          });
    }
   return (
@@ -62,8 +62,15 @@ const Home = () => {
       </div>
         </form>
 
-        <div>
-         
+        <div className="text-center w-7/12 mx-auto">
+        <h2 className="text-2xl font-bold text-center mt-12 mb-5">All Task</h2>
+         {
+            tasks.map((task) => <Task 
+               key={task._id} 
+               task={task}
+               refetch={refetch}
+               ></Task>)
+         }
         </div>
     </div>
   );

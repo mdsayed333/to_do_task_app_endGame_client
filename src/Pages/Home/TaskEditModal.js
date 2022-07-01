@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { toast } from "react-toastify";
+
 
 const TaskEditModal = ({ updateTask, setUpdateTask, refetch }) => {
   const [newTask, setNewTask] = useState(updateTask.task);
@@ -9,7 +11,6 @@ const TaskEditModal = ({ updateTask, setUpdateTask, refetch }) => {
   };
 
   const updateNewTask = () => {
-       console.log("updateNewTask is Clicked....", updatedTask);
 
     fetch(`https://todo-task-app-endgame-server.herokuapp.com/task/${_id}`, {
       method: "PUT",
@@ -20,17 +21,14 @@ const TaskEditModal = ({ updateTask, setUpdateTask, refetch }) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log("Data is Updated = ", data);
+        // console.log("Data is Updated = ", data);
+        toast.success("Successfully Updated Task");
         refetch();
-        // const accessToken = data.token;
-        // localStorage.setItem('accessToken', accessToken);
-        // setToken(accessToken);
       });
   };
 
   return (
     <div>
-      {/* <!-- Put this part before </body> tag --> */}
       <input type="checkbox" id="my-modal-6" class="modal-toggle" />
       <div class="modal modal-bottom sm:modal-middle">
         <div class="modal-box">

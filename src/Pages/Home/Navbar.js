@@ -4,17 +4,25 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   const menuItems = (
     <>
-      <li >
-        <Link to="/" className="btn btn-accent mb-2 mr-2">Home</Link>
+      <li>
+        <Link to="/" className="btn btn-accent mb-2 mr-2">
+          Home
+        </Link>
       </li>
       <li>
-        <Link to="/todo" className="btn btn-accent mb-2 mr-2">To Do</Link>
+        <Link to="/todo" className="btn btn-accent mb-2 mr-2">
+          To Do
+        </Link>
       </li>
       <li>
-        <Link to="/complete" className="btn btn-accent mb-2 mr-2">Completed Tasks</Link>
+        <Link to="/complete" className="btn btn-accent mb-2 mr-2">
+          Completed Tasks
+        </Link>
       </li>
       <li>
-        <Link to="/calendar" className="btn btn-accent mb-2 mr-2">Calendar</Link>
+        <Link to="/calendar" className="btn btn-accent mb-2 mr-2">
+          Calendar
+        </Link>
       </li>
     </>
   );
@@ -46,14 +54,13 @@ const Navbar = () => {
               {menuItems}
             </ul>
           </div>
-          <a class=" normal-case text-xl"><span className="text-4xl font-bold pl-5">To Do Tasks</span></a>
+          <a class=" normal-case text-xl">
+            <span className="text-4xl font-bold pl-5">To Do Tasks</span>
+          </a>
         </div>
         <div class="navbar-center hidden lg:flex">
           <ul class="menu menu-horizontal p-0">{menuItems}</ul>
         </div>
-        {/* <div class="navbar-end">
-          <a class="btn">Get started</a>
-        </div> */}
       </div>
     </div>
   );

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
-import TaskEditModal from "./TaskEditModal";
 
 const Task = ({ task, refetch, setUpdateTask }) => {
   const completeTask = task.task;
@@ -21,7 +20,7 @@ const Task = ({ task, refetch, setUpdateTask }) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         toast.success("Successfully Complete Task");
 
         fetch(url, {
@@ -29,12 +28,11 @@ const Task = ({ task, refetch, setUpdateTask }) => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
+            // console.log(data);
             refetch();
           });
       });
   };
-
 
   return (
     <div class="alert shadow-lg mb-8">
@@ -49,11 +47,13 @@ const Task = ({ task, refetch, setUpdateTask }) => {
         <span className="text-xl font-semibold">{task.task}</span>
       </div>
       <div class="flex-none">
-        <label for="my-modal-6" 
-        onClick={() => setUpdateTask(task)}
-        class="btn btn-sm btn-accent">
-        Edit
-      </label>
+        <label
+          for="my-modal-6"
+          onClick={() => setUpdateTask(task)}
+          class="btn btn-sm btn-accent"
+        >
+          Edit
+        </label>
       </div>
     </div>
   );

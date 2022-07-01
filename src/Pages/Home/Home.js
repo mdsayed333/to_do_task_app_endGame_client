@@ -4,9 +4,11 @@ import { toast,  } from 'react-toastify';
 import { useQuery } from "react-query";
 import Task from "./Task";
 import Loading from "../Loading/Loading";
+import TaskEditModal from "./TaskEditModal";
 
 
 const Home = () => {
+   const [updateTask, setUpdateTask] = useState(null);
 
    const {
       isLoading,
@@ -69,9 +71,18 @@ const Home = () => {
                key={task._id} 
                task={task}
                refetch={refetch}
+               setUpdateTask={setUpdateTask}
                ></Task>)
          }
         </div>
+        {
+         updateTask && <TaskEditModal
+         key={updateTask._id}
+         updateTask={updateTask}
+         setUpdateTask={setUpdateTask}
+         refetch={refetch}
+         ></TaskEditModal>
+        }
     </div>
   );
 };

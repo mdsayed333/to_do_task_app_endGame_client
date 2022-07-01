@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useQuery } from "react-query";
 import Task from '../Home/Task';
+import TaskEditModal from '../Home/TaskEditModal';
 import Loading from '../Loading/Loading';
 
 
 const ToDo = () => {
+   const [updateTask, setUpdateTask] = useState(null);
+
    const {
       isLoading,
       data: tasks,
@@ -25,7 +28,16 @@ const ToDo = () => {
                key={task._id} 
                task={task}
                refetch={refetch}
+               setUpdateTask={setUpdateTask}
                ></Task>)
+         }
+         {
+               updateTask && <TaskEditModal
+               key={updateTask._id}
+               updateTask={updateTask}
+               setUpdateTask={setUpdateTask}
+               refetch={refetch}
+               ></TaskEditModal>
          }
         </div>
    );
